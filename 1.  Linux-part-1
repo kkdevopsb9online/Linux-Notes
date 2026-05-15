@@ -1,7 +1,8 @@
+# Linux Commands for DevOps Engineers (Part 1)
+
 ## 1. `ls` — List Directory Contents
 
 ### Purpose
-
 Used to view files and directories inside a location.
 
 ### Syntax
@@ -28,8 +29,6 @@ ls -lh /var/log
 ### Real-Time DevOps Use Case
 
 Checking log files, deployment artifacts, or verifying generated files after CI/CD execution.
-
-Example:
 
 ```bash
 ls -lrt /opt/tomcat/logs
@@ -64,8 +63,6 @@ cd ~
 ### Real-Time DevOps Use Case
 
 Navigating to application directories, Jenkins workspace folders, Kubernetes configs, or log locations.
-
-Example:
 
 ```bash
 cd /var/lib/jenkins/workspace/project
@@ -105,8 +102,6 @@ pwd
 
 Useful during automation scripting and debugging to confirm execution location.
 
-Example:
-
 ```bash
 pwd && ls
 ```
@@ -140,8 +135,6 @@ mkdir -p /opt/app/releases/v1
 
 Creating backup directories, release folders, log storage locations, or environment-specific paths.
 
-Example:
-
 ```bash
 mkdir -p /data/jenkins-backup/2026
 ```
@@ -173,9 +166,7 @@ rm -rf old_release/
 
 ### Real-Time DevOps Use Case
 
-Cleaning temporary files, removing old deployments, deleting unused containers data.
-
-Example:
+Cleaning temporary files, removing old deployments, deleting unused container data.
 
 ```bash
 rm -rf /tmp/*
@@ -210,8 +201,6 @@ cp -r app/ backup/
 
 Backing up configuration files before deployment changes.
 
-Example:
-
 ```bash
 cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
 ```
@@ -245,8 +234,6 @@ mv app.log /backup/
 
 Renaming deployment artifacts or moving logs for archival.
 
-Example:
-
 ```bash
 mv application.war application-old.war
 ```
@@ -279,8 +266,6 @@ cat /etc/passwd
 ### Real-Time DevOps Use Case
 
 Quickly checking application configs, YAML files, environment variables, or logs.
-
-Example:
 
 ```bash
 cat deployment.yaml
@@ -316,8 +301,6 @@ grep -r database /etc/
 
 Searching logs for failures, exceptions, HTTP status codes, or container errors.
 
-Example:
-
 ```bash
 grep "500" access.log
 ```
@@ -351,8 +334,6 @@ find / -type f -size +100M
 
 Finding large files causing disk issues or locating configuration files across servers.
 
-Example:
-
 ```bash
 find / -type f -name "application.properties"
 ```
@@ -360,4 +341,3 @@ find / -type f -name "application.properties"
 ### Interview Explanation
 
 `find` is extremely useful for automation, cleanup jobs, backup verification, and troubleshooting storage-related production issues.
-
