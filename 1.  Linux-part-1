@@ -1,0 +1,365 @@
+# Linux Commands for DevOps Engineers 
+
+## 1. `ls` — List Directory Contents
+
+### Purpose
+
+Used to view files and directories inside a location.
+
+### Syntax
+
+```bash
+ls [options] [directory]
+```
+
+### Common Options
+
+```bash
+ls -l      # long listing format
+ls -a      # show hidden files
+ls -lh     # human readable sizes
+ls -lrt    # latest modified files at bottom
+```
+
+### Example
+
+```bash
+ls -lh /var/log
+```
+
+### Real-Time DevOps Use Case
+
+Checking log files, deployment artifacts, or verifying generated files after CI/CD execution.
+
+Example:
+
+```bash
+ls -lrt /opt/tomcat/logs
+```
+
+### Interview Explanation
+
+`ls` is one of the most frequently used Linux commands for file inspection. In DevOps, it helps verify deployments, inspect logs, validate permissions, and troubleshoot server-side issues quickly.
+
+---
+
+# 2. `cd` — Change Directory
+
+### Purpose
+
+Navigate between directories.
+
+### Syntax
+
+```bash
+cd [directory_path]
+```
+
+### Examples
+
+```bash
+cd /var/log
+cd ..
+cd ~
+```
+
+### Real-Time DevOps Use Case
+
+Navigating to application directories, Jenkins workspace folders, Kubernetes configs, or log locations.
+
+Example:
+
+```bash
+cd /var/lib/jenkins/workspace/project
+```
+
+### Interview Explanation
+
+`cd` helps users move across filesystem paths efficiently. In production environments, DevOps engineers use it constantly for troubleshooting, deployments, and configuration management.
+
+---
+
+# 3. `pwd` — Print Working Directory
+
+### Purpose
+
+Displays current directory path.
+
+### Syntax
+
+```bash
+pwd
+```
+
+### Example
+
+```bash
+pwd
+```
+
+### Output
+
+```bash
+/home/devops/projects
+```
+
+### Real-Time DevOps Use Case
+
+Useful during automation scripting and debugging to confirm execution location.
+
+Example:
+
+```bash
+pwd && ls
+```
+
+### Interview Explanation
+
+`pwd` is important in shell scripting and automation because many deployment scripts depend on correct execution paths.
+
+---
+
+# 4. `mkdir` — Create Directories
+
+### Purpose
+
+Creates new directories.
+
+### Syntax
+
+```bash
+mkdir [options] directory_name
+```
+
+### Examples
+
+```bash
+mkdir backups
+mkdir -p /opt/app/releases/v1
+```
+
+### Real-Time DevOps Use Case
+
+Creating backup directories, release folders, log storage locations, or environment-specific paths.
+
+Example:
+
+```bash
+mkdir -p /data/jenkins-backup/2026
+```
+
+### Interview Explanation
+
+`mkdir -p` is commonly used in automation because it creates nested directories safely without errors if parent directories are missing.
+
+---
+
+# 5. `rm` — Remove Files or Directories
+
+### Purpose
+
+Deletes files and directories.
+
+### Syntax
+
+```bash
+rm [options] file_name
+```
+
+### Examples
+
+```bash
+rm test.txt
+rm -rf old_release/
+```
+
+### Real-Time DevOps Use Case
+
+Cleaning temporary files, removing old deployments, deleting unused containers data.
+
+Example:
+
+```bash
+rm -rf /tmp/*
+```
+
+### Interview Explanation
+
+`rm -rf` is powerful and dangerous. DevOps engineers must use it carefully in production environments because accidental deletion can cause outages or data loss.
+
+---
+
+# 6. `cp` — Copy Files and Directories
+
+### Purpose
+
+Copies files/directories from source to destination.
+
+### Syntax
+
+```bash
+cp [options] source destination
+```
+
+### Examples
+
+```bash
+cp file.txt backup.txt
+cp -r app/ backup/
+```
+
+### Real-Time DevOps Use Case
+
+Backing up configuration files before deployment changes.
+
+Example:
+
+```bash
+cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+```
+
+### Interview Explanation
+
+`cp` is commonly used in deployment automation and backup strategies. Using backups before modifications is considered a best practice in DevOps.
+
+---
+
+# 7. `mv` — Move or Rename Files
+
+### Purpose
+
+Moves or renames files/directories.
+
+### Syntax
+
+```bash
+mv source destination
+```
+
+### Examples
+
+```bash
+mv file1.txt file2.txt
+mv app.log /backup/
+```
+
+### Real-Time DevOps Use Case
+
+Renaming deployment artifacts or moving logs for archival.
+
+Example:
+
+```bash
+mv application.war application-old.war
+```
+
+### Interview Explanation
+
+`mv` is useful during blue-green deployments, release management, and log rotation activities.
+
+---
+
+# 8. `cat` — Display File Content
+
+### Purpose
+
+Displays file contents.
+
+### Syntax
+
+```bash
+cat file_name
+```
+
+### Examples
+
+```bash
+cat hosts
+cat /etc/passwd
+```
+
+### Real-Time DevOps Use Case
+
+Quickly checking application configs, YAML files, environment variables, or logs.
+
+Example:
+
+```bash
+cat deployment.yaml
+```
+
+### Interview Explanation
+
+`cat` is heavily used for quick inspection of files and verifying configuration changes during troubleshooting.
+
+---
+
+# 9. `grep` — Search Text Patterns
+
+### Purpose
+
+Searches for patterns inside files.
+
+### Syntax
+
+```bash
+grep [options] pattern file
+```
+
+### Examples
+
+```bash
+grep error app.log
+grep -i failed messages.log
+grep -r database /etc/
+```
+
+### Real-Time DevOps Use Case
+
+Searching logs for failures, exceptions, HTTP status codes, or container errors.
+
+Example:
+
+```bash
+grep "500" access.log
+```
+
+### Interview Explanation
+
+`grep` is one of the most critical troubleshooting commands in Linux. DevOps engineers use it extensively for log analysis and monitoring investigations.
+
+---
+
+# 10. `find` — Search Files and Directories
+
+### Purpose
+
+Finds files/directories based on conditions.
+
+### Syntax
+
+```bash
+find [path] [options]
+```
+
+### Examples
+
+```bash
+find /var/log -name "*.log"
+find / -type f -size +100M
+```
+
+### Real-Time DevOps Use Case
+
+Finding large files causing disk issues or locating configuration files across servers.
+
+Example:
+
+```bash
+find / -type f -name "application.properties"
+```
+
+### Interview Explanation
+
+`find` is extremely useful for automation, cleanup jobs, backup verification, and troubleshooting storage-related production issues.
+
